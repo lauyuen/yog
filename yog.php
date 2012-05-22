@@ -13,6 +13,7 @@ class yog {
                                 "NEXT"    => "info",  
                                 "STARTED" => "info",
                                 "CLOSED"  => "success");
+  const tab = 2;
   /*\
   }o{ Variable Declaration
   \*/
@@ -68,7 +69,7 @@ class yog {
   
   public static function t($int=0)
   {
-    return str_repeat("  ", yog::$hlevel+$int);
+    return str_repeat("  ", yog::$hlevel+$int+yog::tab);
   }
   
   public static function parseSections($text)
