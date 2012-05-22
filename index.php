@@ -48,10 +48,11 @@ function replace($str) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta http-equiv="refresh" content="30">  
+    <!--<meta http-equiv="refresh" content="30">  
 
     <!-- Le styles -->
-    <link href="./css/bootstrap-space.css" rel="stylesheet">
+    <link href="./fonts/stylesheet.css" rel="stylesheet">
+    <link href="./css/bootstrap-journal.css" rel="stylesheet">
     <style type="text/css">
         html { 
             overflow-y: scroll; 
@@ -64,7 +65,12 @@ function replace($str) {
             padding-top: 60px;
             padding-bottom: 40px;
         }
-      
+        
+        .tags {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
         .jumbotron {
             font-size: 54px;
             margin-bottom: 9px;
@@ -94,7 +100,7 @@ function replace($str) {
 
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <!--<div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -112,21 +118,26 @@ function replace($str) {
       </div>
     </div>
     <div class="container">
-<?php
-include("yog.php");
+    <?php
+    include("yog.php");
 
-$yog = new yog();
-// $file = file_get_contents('./test.org');
-// $file = file_get_contents('./essentials.org');
-$file = file_get_contents('./test.org');
-echo $yog->yogThis($file);
+    $yog = new yog();
+    // $file = file_get_contents('./test.org');
+    // $file = file_get_contents('./essentials.org');
+    $file = file_get_contents('./test.org');
+    ?>
+    <div class="row-fluid">
+    <div class="span2">
+    </div>
+    <div class="span8 offset2">
+    <?php echo $yog->yogThis($file);?>
+    </div>
+    </div>
+    <hr>
 
-?>
-      <hr>
-
-      <footer>
-        <p>Footer Placement</p>
-      </footer>
+    <footer>
+      <p>Footer Placement</p>
+    </footer>
 
     </div> <!-- /container -->
 
@@ -153,6 +164,7 @@ echo $yog->yogThis($file);
     
     <script type="text/javascript">
         $(document).ready(function() {
+            $(".collapse").collapse()
             $("#input-en").cleditor();
             $("#input-fr").cleditor();
             $('#example').dataTable( {
