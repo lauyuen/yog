@@ -1,0 +1,15 @@
+* System
+** Input
+- Colemak Keyboard layout (Alternative English keyboard layout)
+- Google Pinyin (For Chinese input)
+* Network
+Communications and networking applications
+** Browsers
+- Chrome (Developer and Canary)
+- Waterfox (64-bit firefox) and Auora
+- Conkeror (Browser with Emacs bindings for linux)
+** P2P
+- uTorrent (Robust windows torrent)
+- Xunlei (Chinese P2P software with private userbase)
+- rtorrent (CLI Linux torrenting software)
+** 
