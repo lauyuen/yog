@@ -1,8 +1,10 @@
 
-* TODO Header 1-1                     :another tag:more tags:last tag:
+* TODO Header 1-1			     :another_tag:more_tags:last_tag:
+SCHEDULED: <2012-05-23 Wed> DEADLINE: <2012-05-23 Wed>
 Content of Header 1
 ** WAITING Header 2-2
 Content of Header 2
+
 asdfop
 kaosdkf
 poaksf
@@ -10,7 +12,7 @@ ok
 poksdfpokpksdafpoks
 *** STARTED Header 3-3
 Content of Header 3-3
-** DONE Header 2-4                          :noexport:
+** DONE Header 2-4						   :noexport:
 Content of Header 2-4
 *** Header 3-5
 Content of Header 3-5
@@ -18,9 +20,10 @@ Content of Header 3-5
 Content of Header 3-6
 * STARTED Header 1-7
 Content of Header 1-7
-** DONE Header 2-8                          :noexport:
+** DONE Header 2-8						   :noexport:
 Content of Header 2-8
 *** Header 3-9
 Content of Header 3-9
 *** Header 3-10
-Content of Header 3-10
+When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$

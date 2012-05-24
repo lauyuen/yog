@@ -1,0 +1,63 @@
+* Kinect Project
+<2012-05-23 Wed>
+The goal of this project is to provide a "smart" room monitoring system.
+** Possible Challenges
+*** Multiple Kinect
+One of the example was found on YouTube that demonstrates the ability of rendering an object with two Kinect [[http://www.youtube.com/watch%3Fv%3D5-w7UXCAUJE][Multiple Kinect: Video]]. And the source code, released under GPL could be found [[http://idav.ucdavis.edu/~okreylos/ResDev/Kinect/Download.html][Multiple Kinect: Source Code]].
+The video shows merging the 3D video streams from two Kinect cameras into a single 3D reconstruction. The cameras were placed at an angle of about 90 degrees, aimed at the same spot in 3D space.
+The two cameras were calibrated internally using the method described in the previous video, and were calibrated externally (with respect to each other) using a flat checkerboard calibration pattern and manual measurements.
+** Useful Documentations and Resources
+These resources documents how to start using the Kinect for Windows SDK and sensor to develop applications. [[http://www.microsoft.com/en-us/kinectforwindows/develop/learn.aspx][Microsoft: Develope+Learn]]
+Here are the developer downloads from Microsoft [[http://www.microsoft.com/en-us/kinectforwindows/Develop/Developer-Downloads.aspx][Microsoft: Download]]
+*** Supported Operating Systems and Architectures
+- Windows 7
+- Windows Embedded Standard 7
+- If your Windows 7 edition is Windows 7 N or Windows 7 KN, you must install the Media Feature Pack which is required by the Kinect for Windows runtime.
+You must run applications that are built by using the SDK in a native Windows environment. You cannot run applications in a virtual machine, because the Kinect drivers and this SDK must be installed on the computer that is running the application.
+*** Hardware Requirements
+- Your computer must meet the following minimum capabilities.
+  - 32-bit (x86) or 64-bit (x64) processors
+  - Dual-core, 2.66-GHz or faster processor
+  - USB 2.0 bus dedicated to the Kinect
+  - 2 GB of RAM
+  - Graphics card that supports DirectX 9.0c
+- A Microsoft Kinect for Windows Sensor
+*** Software Requirements
+- [[http://www.microsoft.com/visualstudio/en-us/products/2010-editions/express#2010-Visual-CPP][Microsoft Visual Studio 2010 Express]] or other Visual Studio 2010 edition
+- [[http://msdn.microsoft.com/en-us/netframework/aa569263][.NET Framework 4]] (installed with Visual Studio 2010)
+
+The speech samples also require:
+- [[http://www.microsoft.com/download/en/details.aspx%3Fid%3D27226][Microsoft Speech Platform Software Development Kit (Version 11)]], if you need to compile the samples.
+- [[http://www.microsoft.com/download/en/details.aspx%3Fid%3D27225][Microsoft Speech Platform Runtime (Version 11)]] which is automatically installed as part of the Kinect runtime setup, if you want to run the samples only.
+
+The Depth-D3D and DepthWithColor-D3D samples also require:
+- [[http://www.microsoft.com/en-us/download/details.aspx%3Fid%3D6812][DirectX Software Development Kit]], if you need to compile the samples.
+- [[http://www.microsoft.com/en-us/download/details.aspx%3Fid%3D8109][DirectX End-User Runtimes (June 2010)]] if you want to run the samples only.
+
+The Avateering and XNABasics samples also require:
+- [[http://www.microsoft.com/en-us/download/details.aspx%3Fid%3D23714][Microsoft XNA Game Studio 4.0]], if you need to compile the samples.
+- [[http://www.microsoft.com/en-us/download/details.aspx%3Fid%3D20914][Microsoft XNA Framework Redistributable 4.0]] if you want to run the samples only.
+
+*** About the Kinect Sensor
+
+*** Software Specifications
+
+* YOPP
+YOPP stands for "YOPP Org-mode PHP Parser".  This project was started to allow dynamic generation of HTML5/CSS3 files on the fly.  The final goal of this project is to be able to conveniently write blogs with org-mode.Here are some of the major new features that are implemented today.
+** DONE Section Hiding
+Clicking on the header will hide the section under the header. The currently algorithm uses a *stack* approach to balance out the tags. A keyboard shortcut may be implemented in the future.
+** DONE LaTeX Export
+Using symbols such as =\(= and =\)= or =$$= and =$$= will interpret the content inside these tags as LaTeX formula.
+*For example:*
+When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+** DONE Intermediate Formatting
+Using formatters such as =*=, =/=, and =+= will change the formatting.
+*For Example:*
+=*example*= will yield *example*.
+=/example/= will yield /example/.
+=+example+= will yield +example+
+Many for the characters will be replaced by glyphs such as "double quotes" and 'single quotes.' The characters in =<code>= tags, within LaTeX operators, and within a URL are then converted back to their "unglyphed" forms.
+** STARTED List Handling
+List items are started by starting a new line with =-=. Indenting the list will create sublist or nested list.
+

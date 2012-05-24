@@ -1,0 +1,32 @@
+
+* Kinect Project
+<2012-05-23 Wed>
+The goal of this project is to provide a "smart" room monitoring system.
+** Multiple Kinect
+One of the example was found on YouTube that demonstrates the ability of rendering an object with two Kinect [[http://www.youtube.com/watch%3Fv%3D5-w7UXCAUJE][here]]. And the source code, released under GPL could be found [[http://idav.ucdavis.edu/~okreylos/ResDev/Kinect/Download.html][here]].
+The video shows merging the 3D video streams from two Kinect cameras into a single 3D reconstruction. The cameras were placed at an angle of about 90 degrees, aimed at the same spot in 3D space.
+The two cameras were calibrated internally using the method described in the previous video, and were calibrated externally (with respect to each other) using a flat checkerboard calibration pattern and manual measurements.
+
+
+* 3D Town - The Automatic Urban Awareness Project
+
+
+* PHP org-mode parser project
+Currently called YOPP, standing for YOPP Org-mode PHP Parser.  This project was started to allow dynamic generation of HTML5/CSS3 files on the fly.  The final goal of this project is to be able to conveniently write blogs with org-mode.Here are some of the major new features that are implemented today.
+
+** STARTED Section Hiding
+Clicking on the header will hide the section under the header. The currently algorithm uses a *stack* approach to balance out the tags.This feature is still under heavy development and will most likely change in the next update.
+
+** DONE LaTeX Export
+Using symbols such as =\(= and =\)= or =$$= and =$$= will interpret the content inside these tags as LaTeX formula.
+
+*For example:*
+When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
+** DONE Basic Formatting
+Using formatters such as =*= and =/= will change the formatting.
+
+*For Example:*
+=*example*= will yield *example*.
+=/example/= will yield /example/.

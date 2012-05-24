@@ -1,44 +1,12 @@
 ﻿<?php
 
-$dlevel = 0;
-$noexport = true;
+  include("yog.php");
 
-function tab($int, $str="") {
-  for ($i = 0; $i < $int; $i++) {
-    $str="  ".$str;
-  }
-  return $str;
-}
+  $yog = new yog();
+  // $file = file_get_contents('./test.org');
+  // $file = file_get_contents('./essentials.org');
+  $file = file_get_contents('./May24.org');
 
-function replace($str) {
-    global $dlevel;
-    global $noexport;
-    
-    $hlevel = 0;
-    $content = "";
-
-    if (preg_match('/(\\*+) (.*)/', $str, $matches)) {
-      //var_dump($matches);
-      $hlevel = strlen($matches[1]);
-      $title = $matches[2];
-      
-      $noexport = false;
-      for (;$dlevel >= $hlevel; $dlevel--) {
-        $content = $content.tab($dlevel)."</div>\n";
-      }
-      $content = $content.tab($hlevel)."<h$hlevel>".$title."</h$hlevel>\n";
-      $content = $content.tab($hlevel)."<div id=\"$title\">\n";
-      $dlevel = $hlevel;
-      
-    } else {
-      $content = tab($dlevel+1).$str."\n";
-    }
-    if ($str == "" || $noexport) {
-      $noexport = true;
-      return;
-    }
-    return $content;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +16,7 @@ function replace($str) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!--<meta http-equiv="refresh" content="30">  
+    <!--<meta http-equiv="refresh" content="30">  -->
 
     <!-- Le styles -->
     <link href="./fonts/stylesheet.css" rel="stylesheet">
@@ -67,8 +35,8 @@ function replace($str) {
         }
         
         .tags {
-            text-align: center;
             margin-bottom: 24px;
+            text-align: left;
         }
         
         .jumbotron {
@@ -113,32 +81,27 @@ function replace($str) {
             <ul class="nav">
               <li><a href="#">Blog</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="container">
-    <?php
-    include("yog.php");
+        <div class="row-fluid">
+            <div class="span2">
+            </div>
 
-    $yog = new yog();
-    // $file = file_get_contents('./test.org');
-    // $file = file_get_contents('./essentials.org');
-    $file = file_get_contents('./test.org');
-    ?>
-    <div class="row-fluid">
-    <div class="span2">
-    </div>
-    <div class="span8 offset2">
-    <?php echo $yog->yogThis($file);?>
-    </div>
-    </div>
-    <hr>
+            <div class="span8 offset2">
+            <?php echo $yog->yogThis($file);?>
+            </div>
 
-    <footer>
-      <p>Footer Placement</p>
-    </footer>
+            <div class="span2 offset10">
+            </div>
+        </div>
+        <hr>
 
+        <footer>
+        <p>Footer Placement</p>
+        </footer>
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -161,10 +124,15 @@ function replace($str) {
     <script src="js/bootstrap-collapse.js"></script>
     <!--<script src="js/bootstrap-carousel.js"></script>
     <script src="js/bootstrap-typeahead.js"></script>-->
+        <script src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=default"></script>
+
     
     <script type="text/javascript">
         $(document).ready(function() {
             $(".collapse").collapse()
+            MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            });
             $("#input-en").cleditor();
             $("#input-fr").cleditor();
             $('#example').dataTable( {

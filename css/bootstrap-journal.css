@@ -131,9 +131,9 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: 'TeXGyreScholaRegular',"Times New Roman", Times, serif;
+  font-family: 'TeXGyreSchola',"Times New Roman", Times, serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 24px;
   color: #222222;
   background-color: #fcfbfd;
 }
@@ -142,7 +142,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #888888;
+  color: #cccccc;
   text-decoration: underline;
 }
 .row {
@@ -343,7 +343,7 @@ p {
   margin: 0 0 9px;
   font-family: 'TeXGyreScholaRegular',"Times New Roman", Times, serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 22px;
 }
 p small {
   font-size: 12px;
@@ -362,7 +362,8 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: 'TeXGyreScholaBoldItalic',"Times New Roman", Times, serif;
+  margin-top: 40px;
+  font-family: 'TeXGyreScholaBold',"Times New Roman", Times, serif;
   text-align: center;
   color: inherit;
   text-rendering: optimizelegibility;
@@ -492,10 +493,10 @@ hr.soften {
 }
 
 strong {
-  font-weight: bold;
+  font-family: 'TeXGyreScholaBold',"Times New Roman", Times, serif;
 }
 em {
-  font-style: italic;
+  font-family: 'TeXGyreScholaItalic',"Times New Roman", Times, serif;
 }
 .muted {
   color: #999999;
@@ -4198,6 +4199,7 @@ h6,
 }
 a {
   text-decoration: underline;
+  color: #00DA3C;
 }
 .nav a,
 .navbar .brand,
