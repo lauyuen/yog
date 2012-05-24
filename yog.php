@@ -5,7 +5,6 @@ class yog {
     /*\
     }o{ Configurations
     \*/
-
     private static $keys  = array("TODO"    => "important",
     "DONE"    => "success",
     "WAITING" => "warning",
@@ -14,13 +13,12 @@ class yog {
     "STARTED" => "info",
     "CLOSED"  => "success");
     const tab = 4;
+
     /*\
     }o{ Variable Declaration
     \*/
-
     private static $curLevel  = 0;
     private static $preLevel  = array();
-
 
     /*\
     }o{ Methods
@@ -60,7 +58,7 @@ class yog {
 
         // list
         '/^( *?)- (.+)?/m',
-            
+
         '/\[\[(.+?)\]\[(.+?)\]\]/m',      // URL
 
         );
@@ -85,20 +83,21 @@ class yog {
         "&#8482;",      // trademark
         "&#174;",       // registered
         "&#169;",       // copyright
-        
+
         // list
         "$1<li>$2",
-        
+
         '<a href="$1" title="$2" target="_blank">$2</a>',
         );
         $out = preg_replace($regex, $final, $text);
 
         $out = preg_replace_callback('/(\$\$.*?\$\$)|(\\\\\(.*?\\\\\))|
-        (<code>.*?<\/code>)|(href=".*?")/', 'yog::unescape',$out, -1, $m);
-        //$out = preg_replace('/\$=\s(.*)\s=\$/','$</code> $1 <code>$',$out);
+        (<code>.*?<\/code>)/', 'yog::unescape',$out, -1, $m);
+        $out = preg_replace_callback('/(href=".*?")/', create_function(
+        '$m','return urldecode($m[0]);'),$out, -1, $m);
         return $out;
     }
-    
+
     private static function unescape($m)
     {
         //print_r($m);
@@ -108,7 +107,7 @@ class yog {
         "/<del>(.*)<\/del>/m",       // <del>example+</del>
         "/(?<=[.])<code>(.*)<\/code>/m",
         '/\&#8216;/','/\&#8217;/','/\&#8220;/','/\&#8221;/',
-        
+
         );
         $final = array(
         "*$1*", // <strong>example*</strong>
@@ -116,11 +115,11 @@ class yog {
         "+$1+", // <del>example+</del>
         '=$1=',
         "'","'",'"','"',
-        
+
         );
-        return urldecode(preg_replace($regex, $final, array_pop($m)));
+        return preg_replace($regex, $final, array_pop($m));
     }
-    
+
     private static function mktitle($text, $level)
     {
         $rkeys    = '/^('.join("|",array_keys(yog::$keys)).') (.*)/';
@@ -176,13 +175,11 @@ class yog {
             {
                 $text        = $matches[2];
                 $level       = strlen($matches[1]);
-                
+
                 if ($level > end(yog::$preLevel))
-                    yog::$preLevel[] = $level;
+                yog::$preLevel[] = $level;
                 else if (end(yog::$preLevel) == $level)
-                {
-                    $finalstr.= yog::t()."</div>\n";
-                }
+                $finalstr.= yog::t()."</div>\n";
                 else
                 {
                     while ($level <= end(yog::$preLevel))
@@ -195,9 +192,9 @@ class yog {
                 $finalstr.= yog::mktitle($text, $level);
             }
             else if(preg_match('/^\s$/', $line))
-                $finalstr.= yog::t(1)."<br>\n";
+            $finalstr.= yog::t(1)."<br>\n";
             else
-                $finalstr.= yog::t(1)."<p>".wordwrap($line, 80, "\n".yog::t(1), false)."</p>\n";
+            $finalstr.= yog::t(1)."<p>".wordwrap($line, 80, "\n".yog::t(1), false)."</p>\n";
         }
         while (!empty(yog::$preLevel))
         {
@@ -205,7 +202,7 @@ class yog {
             array_pop(yog::$preLevel);
         }
         $finalstr.="\n";
-        
+
         return $finalstr;
     }
 
