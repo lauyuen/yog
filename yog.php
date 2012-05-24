@@ -94,7 +94,7 @@ class yog {
         $out = preg_replace($regex, $final, $text);
 
         $out = preg_replace_callback('/(\$\$.*?\$\$)|(\\\\\(.*?\\\\\))|
-        (<code>.*?<\/code>)|(href=".*?")/', 'yog::unescape($m)',$out, -1, $m);
+        (<code>.*?<\/code>)|(href=".*?")/', 'yog::unescape',$out, -1, $m);
         //$out = preg_replace('/\$=\s(.*)\s=\$/','$</code> $1 <code>$',$out);
         return $out;
     }
