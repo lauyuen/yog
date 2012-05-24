@@ -94,33 +94,33 @@ class yog {
         $out = preg_replace($regex, $final, $text);
 
         $out = preg_replace_callback('/(\$\$.*?\$\$)|(\\\\\(.*?\\\\\))|
-        (<code>.*?<\/code>)|(href=".*?")/',
-        function($m)
-        {
-            //print_r($m);
-            $regex = array(
-            "/<strong>(.*)<\/strong>/m", // <strong>example*</strong>
-            "/<em>(.*)<\/em>/m",         // <italic>example/</em>
-            "/<del>(.*)<\/del>/m",       // <del>example+</del>
-            "/(?<=[.])<code>(.*)<\/code>/m",
-            '/\&#8216;/','/\&#8217;/','/\&#8220;/','/\&#8221;/',
-            
-            );
-            $final = array(
-            "*$1*", // <strong>example*</strong>
-            "/$1/", // <italic>example/</em>
-            "+$1+", // <del>example+</del>
-            '=$1=',
-            "'","'",'"','"',
-            
-            );
-            return urldecode(preg_replace($regex, $final, array_pop($m)));
-        },
-        $out, -1, $m);
+        (<code>.*?<\/code>)|(href=".*?")/', 'yog::unescape($m)',$out, -1, $m);
         //$out = preg_replace('/\$=\s(.*)\s=\$/','$</code> $1 <code>$',$out);
         return $out;
     }
-
+    
+    private static function unescape($m)
+    {
+        //print_r($m);
+        $regex = array(
+        "/<strong>(.*)<\/strong>/m", // <strong>example*</strong>
+        "/<em>(.*)<\/em>/m",         // <italic>example/</em>
+        "/<del>(.*)<\/del>/m",       // <del>example+</del>
+        "/(?<=[.])<code>(.*)<\/code>/m",
+        '/\&#8216;/','/\&#8217;/','/\&#8220;/','/\&#8221;/',
+        
+        );
+        $final = array(
+        "*$1*", // <strong>example*</strong>
+        "/$1/", // <italic>example/</em>
+        "+$1+", // <del>example+</del>
+        '=$1=',
+        "'","'",'"','"',
+        
+        );
+        return urldecode(preg_replace($regex, $final, array_pop($m)));
+    }
+    
     private static function mktitle($text, $level)
     {
         $rkeys    = '/^('.join("|",array_keys(yog::$keys)).') (.*)/';
