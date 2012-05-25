@@ -6,7 +6,7 @@ ini_set('display_errors','On');
   $yog = new yog();
   // $file = file_get_contents('./test.org');
   // $file = file_get_contents('./essentials.org');
-  $file = file_get_contents('./May24.org');
+  $file = file_get_contents('./org/May24.org');
 
 ?>
 <!DOCTYPE html>
