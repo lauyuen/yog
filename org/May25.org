@@ -1,5 +1,5 @@
 * Kinect Project
-<2012-05-24 Wed>
+<2012-05-25 Wed>
 The goal of this project is to provide a "smart" room monitoring system.
 ** Possible Challenges
 *** Multiple Kinect
